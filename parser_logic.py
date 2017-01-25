@@ -5,6 +5,9 @@ from tkinter import Tk
 from tkinter.filedialog import askdirectory
 import time
 
+# todo:
+# make renaming temporary, file names go back to their original after the parsing computation is done
+
 rootWindow = Tk().withdraw()
 folder = askdirectory(title="Choose the folder in which the .eml files are located") + "/"
 mail_data = {}
@@ -36,16 +39,17 @@ for dirpath, dirname, filename in os.walk(folder):
 		except UnicodeDecodeError:
 			continue
 
+
 # show results sorted by number of ocurrences
-print("\nTake a look at the results:\n")
 # transforms dict into a list of tuples, inverts (key, val) for (val, key) and sorts it reversely
+print("\nTake a look at the results:\n")
 inversed_dict = [(count, email) for email, count in mail_data.items()]
 for count, email in sorted(inversed_dict, reverse=True):
 	print("Email:", email)
 	print("Count:", count)
 	print("\n")
 
-# user interaction for filtering
+# user interaction for filtering by keyword
 while True:
 	user_filter = input("Type a keyword and I will see what I can find. Type quit to, well... quit:\n")
 	if user_filter == 'quit':
