@@ -1,0 +1,1 @@
+#### Parses .eml files in a folder, extracts all recipient's email, builds a histogram of occurrences by email and shows them for the user with the option to filter the emails shown by keyword.
