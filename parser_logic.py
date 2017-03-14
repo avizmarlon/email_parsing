@@ -7,6 +7,7 @@ import time
 
 # todo:
 # make renaming temporary, file names go back to their original after the parsing computation is done
+# or find a way to parse without needing to rename (probably using regex).
 
 rootWindow = Tk().withdraw()
 folder = askdirectory(title="Choose the folder in which the .eml files are located") + "/"
